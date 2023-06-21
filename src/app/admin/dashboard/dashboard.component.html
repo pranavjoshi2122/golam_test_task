@@ -1,0 +1,89 @@
+
+<button class="add-button" (click)="showModal()">Add Contractor</button>
+
+<!-- The Modal -->
+<div class="modal" [style.display]="showModalFlag ? 'block' : 'none'">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <form [formGroup]="contractorForm" (ngSubmit)="createContractor()">
+        <div class="modal-inputs">
+          <label for="name">Name:</label>
+          <input type="text" id="name" formControlName="name" placeholder="Enter name">
+          <div class="error-message" *ngIf="contractorForm.controls['name'].touched && contractorForm.controls['name'].hasError('required')">
+            Name is required.
+          </div>
+        </div>
+        <div class="modal-inputs">
+          <label for="enabled">Enabled:</label>
+          <input type="checkbox" id="enabled" formControlName="enabled">
+        </div>
+        <div class="modal-inputs">
+          <label for="vendor">Vendor:</label>
+          <input type="checkbox" id="vendor" formControlName="vendor">
+        </div>
+        <div class="modal-inputs">
+          <label for="customer">Customer:</label>
+          <input type="checkbox" id="customer" formControlName="customer">
+        </div>
+        <div class="modal-inputs">
+          <label for="description">Description:</label>
+          <input type="text" id="description" formControlName="description" placeholder="Enter description">
+        </div>
+        <div class="modal-inputs">
+          <label for="address">Address:</label>
+          <input type="text" id="address" formControlName="address" placeholder="Enter address">
+        </div>
+        <div class="modal-inputs">
+          <label for="phones">Phones:</label>
+          <input type="text" id="phones" formControlName="phones" placeholder="Enter phones">
+        </div>
+        <div class="modal-inputs">
+          <label for="externalId">External ID:</label>
+          <input type="text" id="externalId" formControlName="externalId" placeholder="Enter external ID">
+        </div>
+        <div class="modal-actions">
+          <button  class="add-button" type="submit">{{editMode?'Edit':'Add'}}</button>
+          <button class="cancel-button" (click)="closeModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Enabled</th>
+        <th>Vendor</th>
+        <th>Customer</th>
+        <th>Description</th>
+        <th>Address</th>
+        <th>Phones</th>
+        <th>External ID</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contractor of contractors">
+        <td>{{ contractor.id }}</td>
+        <td>{{ contractor.attributes.name }}</td>
+        <td>{{ contractor.attributes.enabled }}</td>
+        <td>{{ contractor.attributes.vendor }}</td>
+        <td>{{ contractor.attributes.customer }}</td>
+        <td>{{ contractor.attributes.description }}</td>
+        <td>{{ contractor.attributes.address }}</td>
+        <td>{{ contractor.attributes.phones }}</td>
+        <td>{{ contractor.attributes['external-id'] }}</td>
+        <td class="actions">
+          <button class="edit-button" (click)="editContractor(contractor)">
+            <mat-icon>edit</mat-icon>
+            </button>
+          <button class="delete-button" (click)="deleteContractor(contractor.id)">
+            <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

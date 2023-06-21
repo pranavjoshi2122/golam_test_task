@@ -1,0 +1,40 @@
+<div class="navbar">
+    <div class="top">
+        <mat-icon (click)="onNotClick()"> </mat-icon>
+    </div>
+    <div class="user">
+        <img src="../../../assets/Images/png-clipart-man-wearing-blue-shirt-illustration-computer-icons-avatar-user-login-avatar-blue-child-PhotoRoom.png-PhotoRoom.png"
+            alt="">
+        <h4 class="name">
+            Admin
+        </h4>
+        <p class="mail">admin@gmail.com</p>
+    </div>
+    <div class="menu">
+        <div class="menu-header">
+            <!-- <span>Dashboard</span> -->
+        </div>
+        <div class="menu-item">
+            <button mat-button class="menu-button" routerLink="contracts">
+                <mat-icon>dashboard</mat-icon>
+                <span>Contracts</span>
+            </button>
+            <!-- <button mat-button class="menu-button" routerLink="posts">
+                <mat-icon>message</mat-icon>
+                <span>Post</span>
+            </button> -->
+            <button mat-button class="menu-button" routerLink="accounts">
+                <mat-icon>comments</mat-icon>
+                <span>Accounts</span>
+            </button>
+            <!-- <button mat-button class="menu-button" routerLink="pages">
+                <mat-icon>pages</mat-icon>
+                <span>Page</span>
+            </button>
+            <button mat-button class="menu-button" routerLink="settings"> 
+                <mat-icon>settings</mat-icon>
+                <span>Setings</span>
+            </button> -->
+        </div>
+    </div>
+</div>
