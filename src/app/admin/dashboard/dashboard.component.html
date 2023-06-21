@@ -38,10 +38,10 @@
           <label for="phones">Phones:</label>
           <input type="text" id="phones" formControlName="phones" placeholder="Enter phones">
         </div>
-        <div class="modal-inputs">
+        <!-- <div class="modal-inputs">
           <label for="externalId">External ID:</label>
           <input type="text" id="externalId" formControlName="externalId" placeholder="Enter external ID">
-        </div>
+        </div> -->
         <div class="modal-actions">
           <button  class="add-button" type="submit">{{editMode?'Edit':'Add'}}</button>
           <button class="cancel-button" (click)="closeModal()">Cancel</button>
@@ -60,7 +60,7 @@
         <th>Description</th>
         <th>Address</th>
         <th>Phones</th>
-        <th>External ID</th>
+        
         <th>Actions</th>
       </tr>
     </thead>
@@ -74,7 +74,7 @@
         <td>{{ contractor.attributes.description }}</td>
         <td>{{ contractor.attributes.address }}</td>
         <td>{{ contractor.attributes.phones }}</td>
-        <td>{{ contractor.attributes['external-id'] }}</td>
+        
         <td class="actions">
           <button class="edit-button" (click)="editContractor(contractor)">
             <mat-icon>edit</mat-icon>

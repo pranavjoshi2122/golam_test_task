@@ -28,7 +28,7 @@ export class DashboardComponent {
       description: [''],
       address: [''],
       phones: [''],
-      externalId: ['']
+
     });
     this.loadData();
   }
@@ -56,7 +56,7 @@ export class DashboardComponent {
           description: this.contractorForm.controls['description'].value,
           address: this.contractorForm.controls['address'].value,
           phones: this.contractorForm.controls['phones'].value,
-          // ['external-id']:this.contractorForm.controls['externalId'].value
+
         }
       }
     };
