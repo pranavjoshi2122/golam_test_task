@@ -1,0 +1,41 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f2f2f2;
+  }
+  
+  mat-card {
+    width: 300px;
+    padding: 20px 0;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+ 
+  .header-margin{
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.fullwidth{
+  width: 100%;
+}
+.logo { 
+  text-align: center;
+    img {
+      height: 60px;
+      object-fit: contain;
+    }
+}

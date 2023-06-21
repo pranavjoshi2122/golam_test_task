@@ -1,0 +1,99 @@
+<button class="add-button" (click)="openAddAccountModal()">Add Account</button>
+<!-- <div class="modal-overlay" [style.display]="isAddAccountModalOpen ? 'block' : 'none'">
+    <div class="modal">
+      <h2>Add Account</h2>
+      <form >
+        <label for="accountId">ID:</label>
+        <input type="text" id="accountId" required>
+        <label for="accountName">Name:</label>
+        <input type="text" id="accountName"  required>
+        <label for="accountBalance">Balance:</label>
+        <input type="number" id="accountBalance"  required>
+        <label for="accountMinBalance">Min Balance:</label>
+        <input type="number" id="accountMinBalance"  required>
+        <label for="accountMaxBalance">Max Balance:</label>
+        <input type="number" id="accountMaxBalance"  required>
+        <label for="accountSendBalanceNotificationsTo">Send Balance Notifications To:</label>
+        <input type="text" id="accountSendBalanceNotificationsTo" >
+        <label for="accountExternalId">External ID:</label>
+        <input type="text" id="accountExternalId" >
+        <label for="accountTotalCapacity">Total Capacity:</label>
+        <input type="number" id="accountTotalCapacity"  required>
+        <label for="accountSendInvoicesTo">Send Invoices To:</label>
+        <input type="text" id="accountSendInvoicesTo" >
+        <div class="modal-buttons">
+          <button type="submit" class="save-button">Save</button>
+          <button type="button" class="close-modal" (click)="closeAddAccountModal()">Close</button>
+        </div>
+      </form>
+    </div>
+  </div> -->
+  <div class="modal" [style.display]="isAddAccountModalOpen ? 'block' : 'none'">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="closeAddAccountModal()">&times;</span>
+      <form [formGroup]="accountForm" (ngSubmit)="addAccount()">
+        <div class="modal-inputs">
+          <label for="name">Name:</label>
+          <input type="text" id="name" formControlName="name" placeholder="Enter name">
+        </div>
+        <!-- <div class="modal-inputs">
+          <label for="balance">Balance:</label>
+          <input type="number" id="balance" formControlName="balance" placeholder="Enter Balance">
+        </div> -->
+        <div class="modal-inputs">
+          <label for="minBalance">Min Balance:</label>
+          <input type="number" id="minBalance" formControlName="minBalance" placeholder="Enter Min balance">
+        </div>
+        <div class="modal-inputs">
+          <label for="maxBalance">Max Balance:</label>
+          <input type="number" id="maxBalance" formControlName="maxBalance" placeholder="Enter Max balance">
+        </div>
+        <div class="modal-actions">
+          <button class="add-button" type="submit">{{editMode?'Edit':'Add'}}</button>
+          <button class="cancel-button" (click)="closeAddAccountModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Balance</th>
+        <th>Min Balance</th>
+        <th>Max Balance</th>
+        <!-- <th>Send Balance Notifications To</th>
+        
+        
+        <th>Send Invoices To</th> -->
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of accounts">
+        <td>{{ account.id }}</td>
+        <td>{{ account.attributes.name }}</td>
+        <td>{{ account.attributes.balance }}</td>
+        <td>{{ account.attributes['min-balance'] }}</td>
+        <td>{{ account.attributes['max-balance'] }}</td>
+        <!-- <td>{{ account.attributes['send-balance-notifications-to'] }}</td>
+        <td>{{ account.attributes['send-invoices-to'] }}</td> -->
+        <!-- <td class="actions">
+            <button class="edit-button" (click)="editAccount(account)">Edit</button>
+            <button class="delete-button" (click)="deleteAccount(account.id)">Delete</button>
+          </td> -->
+          <td class="actions">
+            <button class="edit-button" (click)="editAccount(account)">
+              <mat-icon>edit</mat-icon>
+              </button>
+            <button class="delete-button" (click)="deleteAccount(account.id)">
+              <mat-icon>delete</mat-icon>
+              </button>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+  
